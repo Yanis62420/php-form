@@ -27,14 +27,12 @@ if ($_POST) {
         $errors['email'] = 'Veuillez ne pas laisser ce champ vide';
     } elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
         $errors['email'] = 'Veuillez renseigner un email valide';
-    } elseif (strlen($_POST['email']) > 190) {
-        $errors['email'] = "Veuillez renseigner un email d'une longueur maximale de {$maxLengthSubject} caractères inclus";
-    }
+    } 
 
     if (empty($_POST['subject'])) {
         $errors['subject'] = 'Veuillez ne pas laisser ce champ vide';
     } elseif (strlen($_POST['subject']) < 3 || strlen($_POST['subject']) > 190) {
-        $errors['subject'] = 'Veuillez renseigner un sujet entre {$minLengthSubject} et {$maxLengthSubject} caractères inclus';
+        $errors['subject'] = "Veuillez renseigner un sujet entre {$minLengthSubject} et {$maxLengthSubject} caractères inclus";
     }
 
     $minLengthMessage = 3;
@@ -43,7 +41,7 @@ if ($_POST) {
     if (empty($_POST['message'])) {
         $errors['message'] = 'Veuillez ne pas laisser ce champ vide';
     } elseif (strlen($_POST['message']) < 3 || strlen($_POST['message']) > 1000) {
-        $errors['message'] = 'Veuillez renseigner entre {$minLengthMessage} et {$maxLengthMessage} caractères inclus';
+        $errors['message'] = "Veuillez renseigner entre {$minLengthMessage} et {$maxLengthMessage} caractères inclus";
     }
 }
 
